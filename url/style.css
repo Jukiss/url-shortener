@@ -1,11 +1,63 @@
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f8ff; /* Светлый голубой фон */
   font-family: Arial, sans-serif;
 }
 
+.container {
+  text-align: center; /* Центрирование текста внутри контейнера */
+}
+.shortlink {
+  text-align: center; /* Центрирование текста внутри контейнера */
+  color: #0f812b;
+}
 h1 {
-  color: #333;
+  color: #007BFF; /* Голубой цвет для заголовка */
+  margin-bottom: 20px; /* Отступ снизу для разделения с формой */
+}
+
+.form-background {
+  background-color: white; /* Белый фон для формы */
+  padding: 20px;
+  border-radius: 15px; /* Закругленные углы */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Легкая тень */
+  display: flex; /* Используем flexbox для центрирования формы */
+  justify-content: center; /* Центрирование по горизонтали */
+  align-items: center; /* Центрирование по вертикали */
 }
 
 form {
-  margin-bottom: 20px;
+  width: 100%; /* Занять всю ширину родителя */
+  max-width: 400px; /* Ограничение максимальной ширины формы */
+}
+
+input[type="text"] {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid #007BFF; /* Голубая рамка */
+  border-radius: 5px; /* Закругленные углы */
+  text-align: center;
+}
+
+button {
+  background-color: #007BFF; /* Голубая кнопка */
+  color: white; /* Белый текст на кнопке */
+  padding: 10px;
+  border: none;
+  border-radius: 5px; /* Закругленные углы */
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #0056b3; /* Темнее при наведении */
+}
+
+p {
+  margin-top: 20px;
 }
