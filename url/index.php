@@ -1,5 +1,8 @@
 <?php
+
+use chillerlan\QRCode\{QRCode, QROptions};
 require './UrlShortener.php';
+require 'vendor/autoload.php';
 $shortener = new UrlShortener();
 ?>
 
@@ -25,18 +28,15 @@ $shortener = new UrlShortener();
    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['url'])) {//чтобы при обновлении страницы, не генерилась новая ссылка+ защита от долбоеба нужна
        $shortUrlId = $shortener->shorten($_POST['url']);
        $shortUrl = "http://localhost/" . $shortUrlId;
-       //
-       //
-   }
-   //unset($_POST);
-   $_POST['url']='';
-   //header('Location: /url/');
+       $data   = $shortUrl;
+$qrcode = (new QRCode)->render($data);
+printf('<img src="%s" alt="QR Code" />', $qrcode);
+        }
    if (isset($shortUrl)): ?>
        <div class="shortlink">
            <p>short link: <a href="<?= $shortUrl ?>"><?= $shortUrl ?></a></p>
            </div>
    <?php endif; ?>
 </div>
-
 </body>
 </html>
