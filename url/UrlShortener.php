@@ -31,6 +31,7 @@ class UrlShortener {
     public function shorten($url) {
         $id = $this->generateUniqueId();
         $this->redis->set($id, $url); // запись URL в Redis
+        $this->redis->expire($id, 259200);//время жизни записей в бд(ссылок) в секундах
         return $id;
     }
 
